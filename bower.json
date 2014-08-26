@@ -1,0 +1,22 @@
+{
+  "name": "Sorting.Visualization",
+  "version": "0.0.1",
+  "authors": [
+    "caoglish <caoglish.sina@gmail.com>"
+  ],
+  "keywords": [
+    "Sorting",
+    "Visualzation"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angularjs": "~1.2.23"
+  }
+}
