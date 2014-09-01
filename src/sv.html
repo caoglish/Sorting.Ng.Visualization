@@ -1,0 +1,8 @@
+<div>
+  <div class="value-line" ng-repeat="i in data" style="height:20px;width:{{i*10}}px;{{$index==currentPorsition?'background-color:red':''}}; border:{{$index==highlight?'3px':'0px' }} solid orange"><!-- <span style="background:green">{{$index}}</span>--> {{i}}</div> 
+
+  <button ng-click="start()">sort</button>
+  <button ng-click="reset()">reset</button>
+  <span style="color:red" ng-show='isSorted'>Sort done</span>
+
+</div>
