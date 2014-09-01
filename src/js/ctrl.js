@@ -1,11 +1,16 @@
-// Code goes here
-var sorting = require("./sort/insertion.js");
-//var sorting = require("./sort/bubble.js");
-//var sorting = require("./sort/selection.js");
+
 var defaultData = require("./defaultData");
 var sortingRecorder = require("./sortingRecorder");
 
-function ctrl($scope, $timeout) {
+
+
+function ctrl($scope, $timeout,sortFactory) {
+
+    if(!$scope.sortType){
+        $scope.sortType="bubble";
+    }
+    var sorting=sortFactory( $scope.sortType);
+    
     $scope.reset = function() {
         targetData = defaultData.map(function(i) {
             return i;
@@ -39,7 +44,7 @@ function ctrl($scope, $timeout) {
                 i++;
                 $timeout(sortAnimation, sleepTime);
             } else {
-                $scope.alertMsg = "sorting done."
+                $scope.isSorted = true;
                 $scope.data = sortingRecorder.getLastStep();
             }
 
@@ -48,4 +53,7 @@ function ctrl($scope, $timeout) {
     $scope.reset();
     $scope.start();
 }
+
+ctrl.$inject=['$scope','$timeout','sortFactory'];
+
 module.exports = ctrl;

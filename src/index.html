@@ -9,13 +9,19 @@
   <body>
     <h1>Sorting Visualization</h1>
   
-  
+  <sv data-sort="bubble"></sv>
+
+  <sv data-sort="insertion"></sv>
+
+  <sv data-sort="selection"></sv>
+
+
   <div ng-controller="ctrl">
-    <div class="value-line" ng-repeat="i in data" style="height:30px;width:{{i*10}}px;{{$index==currentPorsition?'background-color:red':''}}; border:{{$index==highlight?'3px':'0px' }} solid orange"><!-- <span style="background:green">{{$index}}</span>--> {{i}}</div> 
+    <div class="value-line" ng-repeat="i in data" style="height:20px;width:{{i*10}}px;{{$index==currentPorsition?'background-color:red':''}}; border:{{$index==highlight?'3px':'0px' }} solid orange"> <!-- <span style="background:green">{{$index}}</span>  -->{{i}}</div> 
     
     <button ng-click="start()">sort</button>
     <button ng-click="reset()">reset</button>
-    <span style="color:red">{{alertMsg}}</span>
+    <span style="color:red" ng-show='isSorted'>Sort done</span>
     
   </div>
   
