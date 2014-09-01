@@ -1,44 +1,44 @@
-
 var defaultData = require("./defaultData");
-var sortingRecorder = require("./sortingRecorder");
+var sortingRecorderConstructor = require("./sortingRecorder");
 
-
-
-function ctrl($scope, $timeout,sortFactory) {
-
-    if(!$scope.sortType){
-        $scope.sortType="bubble";
-    }
-    var sorting=sortFactory( $scope.sortType);
+function ctrl($scope, $timeout,$attrs,sortFactory) {
+    var sortingRecorder=new sortingRecorderConstructor();
+    console.log(sortingRecorder);
+    var i = 0;
     
+    $scope.sortType=$attrs.sort||"bubble";
+
+    console.log(  $scope.sortType);
+    var sorting=sortFactory( $scope.sortType);
+    console.log(  sorting);
+
     $scope.reset = function() {
-        targetData = defaultData.map(function(i) {
-            return i;
+        targetData = defaultData.map(function(item) {
+            return item;
         });
-        $scope.data = defaultData.map(function(i) {
-            return i;
+        $scope.data = defaultData.map(function(item) {
+            return item;
         });
         i = 0;
     }
-
-    var i = 0;
+  
     $scope.start = function() {
         $scope.reset();
         sortingRecorder.empty();
         //console.log(sortingRecorder);
         sortingRecorder.record(sorting, targetData);
-        //console.log(sortingRecorder);
+        console.log(sortingRecorder);
 
         var len = sortingRecorder.size();
 
-        var sleepTime = 50;
+        var sleepTime = 100;
 
         $timeout(function sortAnimation() {
             if (i < len) {
                 //console.log("i", i);
                 $scope.data = sortingRecorder.getStep(i);
                 $scope.currentPorsition = sortingRecorder.getPos(i) ;
-                console.log($scope.currentPorsition);
+               // console.log($scope.currentPorsition);
                 $scope.highlight = sortingRecorder.get(i, "min");
                 //console.log($scope.highlight);
                 i++;
@@ -54,6 +54,6 @@ function ctrl($scope, $timeout,sortFactory) {
     $scope.start();
 }
 
-ctrl.$inject=['$scope','$timeout','sortFactory'];
+
 
 module.exports = ctrl;

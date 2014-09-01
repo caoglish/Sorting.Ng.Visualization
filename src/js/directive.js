@@ -1,16 +1,18 @@
-var sortModule = angular.module("sortDirective", []);
+var ngFactorySort = require("./sortFactory");
+var ctrl = require("./ctrl.js");
+
+var sortModule = angular.module("sortDirective", ['sortFactory']);
 
 sortModule.directive("sv", function() {
+
     return {
         restrict: 'E',
-        scope: {
-            dataSort: '@'
-        },
-        controller:['$scope',] function ($scope, $element) {
-         }
-        link: function(scope, element, attrs) {
-                scope.sortType=attrs.sort;
-        },
+        scope: {},
+        controller: ['$scope', '$timeout','$attrs', 'sortFactory',
+            ctrl
+        ],
+
+        
         templateUrl: 'sv.html'
     };
 
