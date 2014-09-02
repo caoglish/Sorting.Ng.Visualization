@@ -1,0 +1,18 @@
+<style>
+.progress {
+    background-image: none;
+    background-color: white;
+    box-shadow: none;
+}
+</style>
+
+<div>
+ <div class="progress" ng-repeat="i in data" >
+    <div class="progress-bar {{$index==currentPorsition?'progress-bar-danger':($index==highlight?'progress-bar-warning':'progress-bar-primary')}}"  role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {{i*(100/54)}}%">
+     <span class="">{{i}}</span>
+    </div>
+ </div>
+  <button ng-click="start()" class="btn btn-default"><i class='glyphicon glyphicon-play'></i> sort</button>
+  <button ng-click="reset()" class="btn btn-default"><i class='glyphicon glyphicon-repeat'></i> reset</button>
+  <span style="color:red" ng-show='isSorted'>Sort done</span>
+</div>

@@ -5,13 +5,8 @@ function ctrl($scope, $timeout,$attrs,sortFactory) {
     var sortingRecorder=new sortingRecorderConstructor();
     console.log(sortingRecorder);
     var i = 0;
-    
     $scope.sortType=$attrs.sort||"bubble";
-
-    console.log(  $scope.sortType);
     var sorting=sortFactory( $scope.sortType);
-    console.log(  sorting);
-
     $scope.reset = function() {
         targetData = defaultData.map(function(item) {
             return item;
@@ -19,6 +14,7 @@ function ctrl($scope, $timeout,$attrs,sortFactory) {
         $scope.data = defaultData.map(function(item) {
             return item;
         });
+         $scope.isSorted=false;
         i = 0;
     }
   
@@ -53,7 +49,4 @@ function ctrl($scope, $timeout,$attrs,sortFactory) {
     $scope.reset();
     $scope.start();
 }
-
-
-
 module.exports = ctrl;

@@ -26,10 +26,19 @@ module.exports = function(grunt) {
                 src: '*.html',
                 dest: 'app/'
             },
-            bower:{
+            bower: {
                 expand: true,
                 src: 'bower.json',
-                dest: 'app/'  
+                dest: 'app/'
+            }
+        },
+        connect: {
+            server: {
+                options: {
+                    port: 8000,
+                    livereload: true,
+                    base: './'
+                }
             }
         },
 
@@ -45,9 +54,9 @@ module.exports = function(grunt) {
                 files: [config.src + "less/**/*.less"],
                 tasks: ['less']
             },
-            html:{
-              files: [config.src+"*.html"],
-                tasks: ['copy']  
+            html: {
+                files: [config.src + "*.html"],
+                tasks: ['copy']
             }
         }
     });
@@ -56,8 +65,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-connect');
 
 
-    grunt.registerTask('dev', ["watch"]);
-    grunt.registerTask('default', ['browserify','less','copy:html','copy:bower']);
+    grunt.registerTask('dev', ["connect","watch"]);
+    grunt.registerTask('default', ['browserify', 'less', 'copy:html', 'copy:bower']);
 };
