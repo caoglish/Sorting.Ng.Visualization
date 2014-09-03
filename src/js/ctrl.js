@@ -3,7 +3,6 @@ var sortingRecorderConstructor = require("./sortingRecorder");
 
 function ctrl($scope, $timeout,$attrs,sortFactory) {
     var sortingRecorder=new sortingRecorderConstructor();
-    console.log(sortingRecorder);
     var i = 0;
     $scope.sortType=$attrs.sort||"bubble";
     var sorting=sortFactory( $scope.sortType);

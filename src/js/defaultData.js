@@ -1,1 +1,9 @@
-module.exports= [54, 16, 37, 28, 29, 24, 21, 11, 5, 10, 4, 3, 8, 1, 25, 12, 20, 30];
+var _=require('underscore');
+var numberList=_.range(1,100);
+var numForSort=[];
+for(var i = 0; i < 20; i++) {
+	numForSort.push(numberList.splice(_.random(numberList.length-1),1)[0]);
+}
+
+
+module.exports = numForSort;

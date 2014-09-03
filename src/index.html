@@ -2,6 +2,7 @@
 <html ng-app="SortVisual">
 <head>
   <script src="bower_components/angularjs/angular.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" />
   <link rel="stylesheet" href="style.css" />
@@ -12,20 +13,27 @@
    <div class="container">
      <h1>Sorting.Ng.Visualization</h1>
    </div>
-
  </div>
- <div class='row'>
-  <div class='col-lg-3'>
-    <sv data-sort="bubble"></sv>
+ <div >
+   <div class='row'>
+     <div class="btn-group col-lg-offset-10 ">
+      <button class="btn btn-default" ng-model="templateFile"  btn-radio="'sv'" >Vertical Style</button>
+      <button class="btn btn-default" ng-model="templateFile"  btn-radio="'svCol'" >Horizontal Style</button>
+    </div>
   </div>
+  <div class='row'>
+    <div class='col-lg-3'>
+      <sv data-sort="bubble"></sv>
+    </div>
 
-  <div class='col-lg-3 col-lg-offset-1'>
-    <sv data-sort="insertion"></sv>
-  </div>
-  <div class='col-lg-3 col-lg-offset-1'>
-    <sv data-sort="selection"></sv>
-  </div>
+    <div class='col-lg-3 col-lg-offset-1'>
+      <sv data-sort="insertion"></sv>
+    </div>
+    <div class='col-lg-3 col-lg-offset-1'>
+      <sv data-sort="selection"></sv>
+    </div>
 
+  </div>
 </div>
 </body>
 </html>

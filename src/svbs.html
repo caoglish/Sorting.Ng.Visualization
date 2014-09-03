@@ -4,11 +4,14 @@
     background-color: white;
     box-shadow: none;
 }
+div.sv {
+ 	margin-top: 1px;
+}
 </style>
 
-<div>
+<div class='sv'>
  <div class="progress" ng-repeat="i in data" >
-    <div class="progress-bar {{$index==currentPorsition?'progress-bar-danger':($index==highlight?'progress-bar-warning':'progress-bar-primary')}}"  role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {{i*(100/54)}}%">
+    <div class="progress-bar {{$index==currentPorsition?'progress-bar-danger':($index==highlight?'progress-bar-warning':'progress-bar-primary')}}"  role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {{i}}%">
      <span class="">{{i}}</span>
     </div>
  </div>
