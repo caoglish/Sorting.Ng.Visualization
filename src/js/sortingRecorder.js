@@ -1,12 +1,8 @@
  var _=require("underscore");
 
-
  var sortingRecorder =function(){
  	this._stepList = [];
-
-
  };
-
 
  sortingRecorder.prototype.size = function() {
  	return this._stepList.length;

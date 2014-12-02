@@ -1,7 +1,7 @@
 var sortList = {
 	bubble: require("./sort/bubble"),
 	insertion: require("./sort/insertion"),
-	selection: require("./sort/selection"),
+	selection: require("./sort/selection")
 };
 
 var sortModule = angular.module("sortFactory", []);
