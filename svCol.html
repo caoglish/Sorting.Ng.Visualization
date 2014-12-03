@@ -1,0 +1,11 @@
+<div class='sv'>
+  <div class="row" style="heigh:100px">
+    <span class="value-line col" ng-repeat="i in data" style="height:{{i*5}}px;background-color:
+    {{$index==highlight?'orange':($index==currentPorsition?'red':'black')}}; "> </span> 
+  </div>
+  <div class="row">
+    <button ng-click="start()" class="btn btn-default"><i class='glyphicon glyphicon-play'></i> sort</button>
+    <button ng-click="reset()" class="btn btn-default"><i class='glyphicon glyphicon-repeat'></i> reset</button>
+    <div  ng-show='isSorted' class='label label-success'>Sort done</div>
+  </div>
+</div>
